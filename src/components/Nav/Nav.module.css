@@ -1,0 +1,11 @@
+.nav {
+margin-top: 20px;
+margin-left: 20px;
+}
+
+.navItem {
+text-decoration: none;
+/* list-style: none; */
+/* color: red; */
+font-size: 26px;
+}
