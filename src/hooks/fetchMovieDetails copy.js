@@ -20,14 +20,12 @@ const useMovieDetails = movie_id => {
     try {
       const movieDetails = await fetchMovie(url);
 
-      console.log(movieDetails);
-
       if (!movieDetails) {
         throw new Error('Getting detailed data is impossible in that moment');
       }
       setMovieDetails(movieDetails.data);
     } catch (error) {
-      setError(error.mesage);
+      setError(error.message);
     } finally {
       setIsLoading(false);
     }

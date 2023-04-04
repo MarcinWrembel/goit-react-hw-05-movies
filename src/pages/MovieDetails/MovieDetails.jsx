@@ -1,20 +1,35 @@
 import useMovieDetails from 'hooks/fetchMovieDetails';
 import css from './MovieDetails.module.css';
-import { useParams, Link } from 'react-router-dom';
+import { useParams, Outlet, NavLink} from 'react-router-dom';
+// import { useNavigate } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
+import { Link } from 'react-router-dom';
+
 import base from '../../data/api.json';
+import styled from 'styled-components';
+
+const StyledMovieLink = styled(NavLink)`
+  color: black;
+
+  &.active {
+    color: orange;
+  }
+`;
 
 const MovieDetails = () => {
   const { movieID } = useParams();
   const { isLoading, error, movieDetails } = useMovieDetails(movieID);
+//   const navigate = useNavigate();
+  const location = useLocation()
+  const backLinkHref = location.state?.from ?? "/";
+
   let avg_votes = 0;
   let imgSrc = '';
   let genres = '';
 
-  if (movieDetails.genres) {
-    avg_votes = movieDetails.vote_average.toFixed(2);
-    imgSrc = `${base.baseImgPath}${movieDetails.poster_path}`;
-    genres = [...movieDetails.genres].map(genre => genre.name).join(', ');
-  }
+//   const handleClick = () => {
+//     navigate(-1);
+//   };
 
   if (isLoading) {
     //spinner
@@ -22,12 +37,18 @@ const MovieDetails = () => {
 
   if (error) {
     //error message
-    console.log('is loading');
+  }
+
+  if (movieDetails.genres && movieDetails.poster_path) {
+    avg_votes = movieDetails.vote_average.toFixed(2);
+    imgSrc = `${base.baseImgPath}/${movieDetails.poster_path}`;
+    genres = [...movieDetails.genres].map(genre => genre.name).join(', ');
   }
 
   return (
     <main>
-      <button> Go back</button>
+      <Link to={backLinkHref}> Go back</Link>
+      {/* <button onClick={handleClick}> Go back</button> */}
       <div className={css.mainWrapper}>
         <img src={imgSrc} alt={movieDetails.title}></img>
         <div>
@@ -43,12 +64,15 @@ const MovieDetails = () => {
         <span>Additional information</span>
         <ul>
           <li>
-            <Link to="">Cast</Link>
+            <StyledMovieLink to={`cast`}>Cast</StyledMovieLink>
           </li>
           <li>
-            <Link to="">Reviews</Link>
+            <StyledMovieLink to="reviews">Reviews</StyledMovieLink>
           </li>
         </ul>
+      </section>
+      <section>
+        <Outlet />
       </section>
     </main>
   );

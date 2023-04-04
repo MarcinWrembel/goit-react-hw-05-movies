@@ -2,33 +2,36 @@ import fetchMovie from 'functions/api';
 import { useEffect, useState } from 'react';
 import base from '../data/api.json';
 
-const useMovieDetails = movie_id => {
-  const [movieDetails, setMovieDetails] = useState({});
+const useMovieReviews = movie_id => {
+  const [movieReviews, setMovieReviews] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
 
+  //https://api.themoviedb.org/3/movie/{movie_id}/reviews?api_key=<<api_key>>&language=en-US&page=1
+  //`${baseUrl}movie/${movieId}/reviews?api_key=${apiKey}&language=en-US&page=1`
+
   useEffect(() => {
-    const fetchMovieDetails = async () => {
+    const fetchMovieReviews = async () => {
       const url = ''.concat(
         base.baseUrl,
         'movie/',
         movie_id,
-        '?api_key=',
+        '/reviews?api_key=',
         base.KEY,
         '&language=en-US'
       );
 
       try {
-        const movieDetails = await fetchMovie(url);
+        const movieReviews = await fetchMovie(url);
 
         if (!movie_id) {
-          setMovieDetails(null);
+          setMovieReviews(null);
           return;
         }
 
-        setMovieDetails(movieDetails.data);
+        setMovieReviews(movieReviews.data.results);
 
-        if (!movieDetails) {
+        if (!movieReviews) {
           throw new Error('Getting detailed data is impossible in that moment');
         }
       } catch (error) {
@@ -40,10 +43,10 @@ const useMovieDetails = movie_id => {
 
     setError(null);
     setIsLoading(true);
-    fetchMovieDetails();
+    fetchMovieReviews();
   }, [movie_id]);
 
-  return { isLoading, error, movieDetails };
+  return { isLoading, error, movieReviews };
 };
 
-export default useMovieDetails;
+export default useMovieReviews;

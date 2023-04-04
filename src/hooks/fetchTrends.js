@@ -14,7 +14,6 @@ const useTrends = url => {
       if (!response) {
         throw new Error('Sorry, something went wrong');
       }
-
       // console.log('trends',response.data);
 
       setTrends(response.data.results);

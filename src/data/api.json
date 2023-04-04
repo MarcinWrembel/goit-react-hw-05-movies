@@ -1,5 +1,5 @@
 {
   "KEY": "86215569019dc51ec531ccde721316fb",
   "baseUrl": "https://api.themoviedb.org/3/",
-  "baseImgPath": "https://image.tmdb.org/t/p/w185/"
+  "baseImgPath": "https://image.tmdb.org/t/p/w185"
 }

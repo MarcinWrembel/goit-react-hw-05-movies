@@ -1,21 +1,19 @@
-// import useSearchMovies from 'hooks/fetchQueryMovies';
 import { useState } from 'react';
 
-const SearchForm = ({onSubmit}) => {
+const SearchForm = ({ onSubmit }) => {
   const [query, setQuery] = useState('');
-
-//   const { searchedMovies, isLoading, error } = useSearchMovies(searchQuery);
 
   const onFormSubmit = e => {
     e.preventDefault();
-    onSubmit(query)
+    onSubmit(query);
+
+    //clear input value from state
+    setQuery('');
   };
 
   const handleChange = e => {
     setQuery(e.target.value);
   };
-
-
 
   return (
     <div>
@@ -28,7 +26,7 @@ const SearchForm = ({onSubmit}) => {
           autoFocus
           onChange={handleChange}
         ></input>
-        <button type='submit'>Search</button>
+        <button type="submit">Search</button>
       </form>
     </div>
   );

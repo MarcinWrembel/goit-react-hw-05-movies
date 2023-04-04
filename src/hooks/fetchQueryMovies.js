@@ -30,7 +30,7 @@ const useSearchMovies = query => {
         }
 
         setSearchedMovies(response.data.results);
-        console.log(response.data);
+
       } catch (error) {
         setError(error.message);
       } finally {
