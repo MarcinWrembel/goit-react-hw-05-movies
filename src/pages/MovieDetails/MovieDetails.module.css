@@ -30,7 +30,7 @@
   margin-top: 20px;
   max-width: 280px;
   width: 100%;
-  border-radius:20px;
+  border-radius: 20px;
 }
 
 .movieDesc {
@@ -46,13 +46,11 @@
 }
 .movieDescCategory {
   font-size: 16px;
-
 }
 
 .movieDescInfo {
   line-height: 1.3;
   padding-left: 10px;
-
 }
 
 .movieDescInfo:first-child {
@@ -101,6 +99,7 @@
   .movieDesc {
     align-items: flex-start;
     align-content: flex-start;
+    padding-left: 0;
   }
 
   .movieDescInfo {
@@ -114,5 +113,9 @@
 
   .movieDescTitle {
     text-align: left;
+  }
+
+  .movieDescCategory {
+    padding-left: 0;
   }
 }
