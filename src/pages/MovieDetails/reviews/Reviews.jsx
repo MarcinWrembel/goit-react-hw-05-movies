@@ -1,7 +1,7 @@
 import { useParams } from 'react-router-dom';
 import useMovieReviews from '../../../hooks/fetchReviews';
 import Spinner from 'components/spinner/Spinner';
-import css from './Review.module.css';
+import rev from './Review.module.css';
 import { toast } from 'react-toastify';
 
 const Reviews = () => {
@@ -18,20 +18,20 @@ const Reviews = () => {
 
   if (movieReviews) {
     return (
-      <div>
+      <div className={rev.review}>
         {isLoading && <Spinner />}
-        <ul className={css.reviewList}>
-          {movieReviews.map(rev => (
-            <li key={rev.id}>
-              <article>
-                <h3>{rev.author}</h3>
-                <p>{rev.content}</p>
-                <footer className={css.reviewListArticle}>
-                  <p>
+        <ul className={rev.reviewList}>
+          {movieReviews.map(review => (
+            <li key={review.id}>
+              <article className={rev.reviewListData}>
+                <h3>{review.author}</h3>
+                <p>{review.content}</p>
+                <footer className={rev.reviewListArticle}>
+                  <p className={rev.reviewListCreation}>
                     Created at:
-                    <time dateTime={rev.created_at}>
+                    <time dateTime={review.created_at}>
                       {' '}
-                      {rev.created_at.split('T')[0]}
+                      {review.created_at.split('T')[0]}
                     </time>
                   </p>
                 </footer>

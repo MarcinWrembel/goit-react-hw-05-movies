@@ -3,6 +3,7 @@
   margin: 0 auto;
   margin-top: 30px;
   max-width: 800px;
+  width: 100%;
 }
 
 .movieWrapper {
@@ -27,27 +28,35 @@
 
 .movieImg {
   margin-top: 20px;
-  max-width: 300px;
+  max-width: 280px;
   width: 100%;
+  border-radius:20px;
 }
 
 .movieDesc {
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
+  flex-wrap: wrap;
 }
 
 .movieDescTitle {
   font-size: 24px;
+  text-align: center;
 }
 .movieDescCategory {
   font-size: 16px;
+
 }
 
 .movieDescInfo {
   line-height: 1.3;
   padding-left: 10px;
+
+}
+
+.movieDescInfo:first-child {
+  text-align: center;
 }
 
 .movieOthers {
@@ -101,5 +110,9 @@
   .movieOthers {
     margin-left: 20px;
     display: block;
+  }
+
+  .movieDescTitle {
+    text-align: left;
   }
 }
