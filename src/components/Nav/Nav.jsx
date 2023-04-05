@@ -1,23 +1,18 @@
 import nav from './Nav.module.css';
-import { NavLink } from 'react-router-dom';
-import styled from "styled-components";
-
-const StyledNav = styled(NavLink)`
-  color: black;
-
-  &.active {
-    color: orange;
-  }`;
- 
+import { StyledNav } from './Nav.styled';
 
 const Nav = () => {
-    
-   return (
+  //StyledNav taken from Nav.styled
+  return (
     <nav className={nav.nav}>
-        <StyledNav to="/" className={nav.navItem}>Home</StyledNav>
-        <StyledNav to="/movies" className={nav.navItem}>Movies</StyledNav>
+      <StyledNav to="/" className={nav.navItem}>
+        Home
+      </StyledNav>
+      <StyledNav to="/movies" className={nav.navItem}>
+        Movies
+      </StyledNav>
     </nav>
-   ) 
-}
+  );
+};
 
-export default Nav
+export default Nav;

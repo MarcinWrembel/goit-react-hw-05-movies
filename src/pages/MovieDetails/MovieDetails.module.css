@@ -1,3 +1,105 @@
-.mainWrapper{
-    display: flex;
+.movie {
+  position: relative;
+  margin: 0 auto;
+  margin-top: 30px;
+  max-width: 800px;
+}
+
+.movieWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 10px;
+  align-items: center;
+  border-radius: 20px;
+  -webkit-box-shadow: 2px 11px 24px 0px rgba(66, 68, 90, 1);
+  -moz-box-shadow: 2px 11px 24px 0px rgba(66, 68, 90, 1);
+  box-shadow: 2px 11px 24px 0px rgba(66, 68, 90, 1);
+}
+
+.movieLink {
+  position: absolute;
+  top: 3px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-weight: 700;
+}
+
+.movieImg {
+  margin-top: 20px;
+  max-width: 300px;
+  width: 100%;
+}
+
+.movieDesc {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.movieDescTitle {
+  font-size: 24px;
+}
+.movieDescCategory {
+  font-size: 16px;
+}
+
+.movieDescInfo {
+  line-height: 1.3;
+  padding-left: 10px;
+}
+
+.movieOthers {
+  margin-top: 30px;
+  font-weight: 700;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.movieOthersList {
+  list-style: none;
+  padding-left: 0;
+  line-height: 1.5;
+  display: flex;
+  gap: 20px;
+}
+
+.movieOthersListLink {
+  display: block;
+  background-color: rgba(0, 0, 255, 0.504);
+  text-align: center;
+  width: 60px;
+  padding: 10px;
+  border-radius: 20px;
+}
+
+.movieOthersListItem :hover {
+  background-color: rgb(236, 193, 145);
+}
+
+@media screen and (min-width: 550px) {
+  .movieWrapper {
+    flex-direction: row;
+    align-items: flex-start;
+  }
+  .movieLink {
+    left: 10px;
+    transform: translateX(0);
+  }
+
+  .movieDesc {
+    align-items: flex-start;
+    align-content: flex-start;
+  }
+
+  .movieDescInfo {
+    padding-left: 0;
+  }
+
+  .movieOthers {
+    margin-left: 20px;
+    display: block;
+  }
 }

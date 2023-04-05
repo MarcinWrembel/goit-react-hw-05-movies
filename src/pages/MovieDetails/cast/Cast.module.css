@@ -1,7 +1,45 @@
-.listItem{
-    display: flex;
+.castList {
+  padding-left: 10px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 20px;
 }
 
-.listItemInfo{
-    display: block;
+.castListItem {
+  padding-left: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-width:200px
 }
+
+.castListItemInfo {
+  display: block;
+  text-align: center;
+  line-height: 1.5;
+}
+
+.castListItemInfo:first-child {
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.castListItemImg {
+  display: block;
+  width: 100%;
+  border-radius: 10px;
+}
+
+
+@media screen and (min-width: 550px) {
+    .castList {
+        padding-left: 10px;
+        display: flex;
+        justify-content: flex-start;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 20px;
+      }
+  }

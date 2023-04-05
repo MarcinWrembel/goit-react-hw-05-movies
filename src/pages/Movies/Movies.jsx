@@ -3,10 +3,12 @@ import { useState } from 'react';
 import SearchForm from '../../components/SearchForm/SearchForm';
 import SearchMovieList from 'components/SearchMovieList/SearchMovieList';
 import { useSearchParams } from 'react-router-dom';
+import Spinner from 'components/spinner/Spinner';
+import css from './Movies.module.css';
 
 const Movies = () => {
   const [searchQuery, setSearchQuery] = useState('');
-  const { searchedMovies, isLoading, error } = useSearchMovies(searchQuery);
+  const { searchedMovies, isLoading } = useSearchMovies(searchQuery);
   const [searchParams, setSearchParams] = useSearchParams();
 
   const handleSubmit = query => {
@@ -19,18 +21,10 @@ const Movies = () => {
     setSearchParams(nextParams);
   };
 
-  if (isLoading) {
-    //spinner dodać
-  }
-
-  if (error) {
-    //dodać info o błędzie
-  }
-
   return (
-    <div>
+    <div className={css.movies}>
+      {isLoading && searchQuery !== '' && <Spinner />}
       <SearchForm onSubmit={handleSubmit} params={searchParams} />
-
       {searchedMovies && <SearchMovieList movies={searchedMovies} />}
     </div>
   );

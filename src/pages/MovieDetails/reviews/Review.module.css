@@ -1,0 +1,10 @@
+.reviewList {
+  padding-left: 20px;
+  padding-right: 20px;
+  line-height: 1.3;
+}
+
+.reviewListArticle {
+  font-size: 12px;
+  font-style: oblique;
+}

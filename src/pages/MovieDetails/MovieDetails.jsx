@@ -1,39 +1,37 @@
 import useMovieDetails from 'hooks/fetchMovieDetails';
 import css from './MovieDetails.module.css';
-import { useParams, Outlet, NavLink} from 'react-router-dom';
+import { useParams, Outlet, NavLink } from 'react-router-dom';
 // import { useNavigate } from 'react-router-dom';
 import { useLocation } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 
 import base from '../../data/api.json';
 import styled from 'styled-components';
+import Spinner from 'components/spinner/Spinner';
+import { Suspense } from 'react';
 
 const StyledMovieLink = styled(NavLink)`
   color: black;
 
   &.active {
-    color: orange;
+    color: white;
   }
 `;
 
 const MovieDetails = () => {
   const { movieID } = useParams();
   const { isLoading, error, movieDetails } = useMovieDetails(movieID);
-//   const navigate = useNavigate();
-  const location = useLocation()
-  const backLinkHref = location.state?.from ?? "/";
+  //   const navigate = useNavigate();
+  const location = useLocation();
+  const backLinkHref = location.state?.from ?? '/';
 
   let avg_votes = 0;
   let imgSrc = '';
   let genres = '';
 
-//   const handleClick = () => {
-//     navigate(-1);
-//   };
-
-  if (isLoading) {
-    //spinner
-  }
+  //   const handleClick = () => {
+  //     navigate(-1);
+  //   };
 
   if (error) {
     //error message
@@ -46,33 +44,46 @@ const MovieDetails = () => {
   }
 
   return (
-    <main>
-      <Link to={backLinkHref}> Go back</Link>
+    <main className={css.movie}>
+      {isLoading && <Spinner />}
+      <Link to={backLinkHref} className={css.movieLink}>
+        &lt; Go back
+      </Link>
       {/* <button onClick={handleClick}> Go back</button> */}
-      <div className={css.mainWrapper}>
-        <img src={imgSrc} alt={movieDetails.title}></img>
-        <div>
-          <h1>{movieDetails.title}</h1>
-          <span>User Score: {avg_votes} </span>
-          <h2>Overview</h2>
-          <span>{movieDetails.overview}</span>
-          <h2>Genres</h2>
-          <span>{genres}</span>
+      <div className={css.movieWrapper}>
+        <img
+          src={imgSrc}
+          alt={movieDetails.title}
+          className={css.movieImg}
+        ></img>
+        <div className={css.movieDesc}>
+          <h1 className={css.movieDescTitle}>{movieDetails.title}</h1>
+          <span className={css.movieDescInfo}>User Score: {avg_votes} </span>
+          <h2 className={css.movieDescCategory}>Overview</h2>
+          <span className={css.movieDescInfo}>{movieDetails.overview}</span>
+          <h2 className={css.movieDescCategory}>Genres</h2>
+          <span className={css.movieDescInfo}>{genres}</span>
         </div>
       </div>
-      <section>
-        <span>Additional information</span>
-        <ul>
-          <li>
-            <StyledMovieLink to={`cast`}>Cast</StyledMovieLink>
+      <section className={css.movieOthers}>
+        <span>Additional information:</span>
+        <ul className={css.movieOthersList}>
+          <li className={css.movieOthersListItem}>
+            <StyledMovieLink to="cast" className={css.movieOthersListLink}>
+              Cast
+            </StyledMovieLink>
           </li>
-          <li>
-            <StyledMovieLink to="reviews">Reviews</StyledMovieLink>
+          <li className={css.movieOthersListItem}>
+            <StyledMovieLink to="reviews" className={css.movieOthersListLink}>
+              Reviews
+            </StyledMovieLink>
           </li>
         </ul>
       </section>
       <section>
-        <Outlet />
+        <Suspense>
+          <Outlet />
+        </Suspense>
       </section>
     </main>
   );
