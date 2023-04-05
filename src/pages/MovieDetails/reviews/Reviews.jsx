@@ -3,6 +3,7 @@ import useMovieReviews from '../../../hooks/fetchReviews';
 import Spinner from 'components/spinner/Spinner';
 import rev from './Review.module.css';
 import { toast } from 'react-toastify';
+import PropTypes from 'prop-types';
 
 const Reviews = () => {
   const { movieID } = useParams();
@@ -45,3 +46,14 @@ const Reviews = () => {
 };
 
 export default Reviews;
+
+Reviews.propTypes = {
+  movieReviews: PropTypes.array,
+  id: PropTypes.string,
+  isLoading: PropTypes.bool,
+  error: PropTypes.string,
+  author: PropTypes.string,
+  created_at: PropTypes.string,
+  content: PropTypes.string,
+  movieID: PropTypes.string,
+};

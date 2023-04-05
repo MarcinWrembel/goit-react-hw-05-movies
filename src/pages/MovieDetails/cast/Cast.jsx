@@ -4,6 +4,7 @@ import { useParams } from 'react-router-dom';
 import base from '../../../data/api.json';
 import Spinner from 'components/spinner/Spinner';
 import { toast } from 'react-toastify';
+import PropTypes from 'prop-types'
 
 const Cast = () => {
   const { movieID } = useParams();
@@ -45,3 +46,14 @@ const Cast = () => {
 };
 
 export default Cast;
+
+Cast.propTypes = {
+  credits: PropTypes.array,
+  id: PropTypes.string,
+  isLoading: PropTypes.bool,
+  error: PropTypes.string,
+  name: PropTypes.string,
+  charater: PropTypes.string,
+  castList: PropTypes.func,
+  movieID: PropTypes.string
+};

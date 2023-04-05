@@ -9,6 +9,7 @@ import base from '../../data/api.json';
 import styled from 'styled-components';
 import Spinner from 'components/spinner/Spinner';
 import { Suspense } from 'react';
+import PropTypes from 'prop-types'
 
 const StyledMovieLink = styled(NavLink)`
   color: black;
@@ -90,3 +91,14 @@ const MovieDetails = () => {
 };
 
 export default MovieDetails;
+
+MovieDetails.propTypes = {
+  movieReviews: PropTypes.array,
+  imgSrc: PropTypes.string,
+  isLoading: PropTypes.bool,
+  error: PropTypes.string,
+  title: PropTypes.string,
+  avg_votes: PropTypes.number,
+  overview: PropTypes.string,
+  genres: PropTypes.string,
+};

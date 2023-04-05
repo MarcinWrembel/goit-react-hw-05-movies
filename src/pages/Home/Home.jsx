@@ -4,6 +4,7 @@ import { Link, useLocation } from 'react-router-dom';
 import base from '../../data/api.json';
 import Spinner from 'components/spinner/Spinner';
 import { toast } from 'react-toastify';
+import PropTypes from 'prop-types'
 
 const TREND_URL = ''.concat(
   base.baseUrl,
@@ -46,3 +47,11 @@ const Home = () => {
 };
 
 export default Home;
+
+Home.propTypes = {
+  trends: PropTypes.array,
+  id: PropTypes.string,
+  isLoading: PropTypes.bool,
+  error: PropTypes.string,
+  title: PropTypes.string,
+};

@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import { useLocation } from 'react-router-dom';
 import css from '../../pages/Home/Home.module.css';
+import PropTypes from 'prop-types';
 
 const SearchMovieList = ({ movies }) => {
   const location = useLocation();
@@ -33,3 +34,10 @@ const SearchMovieList = ({ movies }) => {
 };
 
 export default SearchMovieList;
+
+SearchMovieList.propTypes = {
+  movie: PropTypes.array,
+  id: PropTypes.string,
+  movieItems: PropTypes.func,
+  title: PropTypes.string,
+};

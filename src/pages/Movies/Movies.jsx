@@ -6,6 +6,7 @@ import { useSearchParams } from 'react-router-dom';
 import Spinner from 'components/spinner/Spinner';
 import css from './Movies.module.css';
 import { toast } from 'react-toastify';
+import PropTypes from 'prop-types';
 
 const Movies = () => {
   const [searchQuery, setSearchQuery] = useState('');
@@ -36,3 +37,12 @@ const Movies = () => {
 };
 
 export default Movies;
+
+Movies.propTypes = {
+  searchQuery: PropTypes.string,
+  searchParams: PropTypes.string,
+  searchedMovies: PropTypes.array,
+  isLoading: PropTypes.bool,
+  error: PropTypes.string,
+  query: PropTypes.string,
+};
