@@ -3,12 +3,16 @@ import useCredits from 'hooks/fetchCredits';
 import { useParams } from 'react-router-dom';
 import base from '../../../data/api.json';
 import Spinner from 'components/spinner/Spinner';
+import { toast } from 'react-toastify';
 
 const Cast = () => {
   const { movieID } = useParams();
   const { isLoading, error, credits } = useCredits(movieID);
   let castList = '';
 
+  if (error) {
+    toast.error(error);
+  }
 
   if (credits) {
     castList = credits.map(cast => {

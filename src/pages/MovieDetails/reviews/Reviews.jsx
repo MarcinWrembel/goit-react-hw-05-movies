@@ -1,12 +1,16 @@
 import { useParams } from 'react-router-dom';
 import useMovieReviews from '../../../hooks/fetchReviews';
 import Spinner from 'components/spinner/Spinner';
-import css from './Review.module.css'
+import css from './Review.module.css';
+import { toast } from 'react-toastify';
 
 const Reviews = () => {
   const { movieID } = useParams();
-  const { isLoading, movieReviews } = useMovieReviews(movieID);
+  const { isLoading, error, movieReviews } = useMovieReviews(movieID);
 
+  if (error) {
+    toast.error(error);
+  }
 
   if (movieReviews.length === 0) {
     return <h2>There is no any comment for this movie</h2>;

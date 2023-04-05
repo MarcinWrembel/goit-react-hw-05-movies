@@ -3,7 +3,7 @@ import useTrends from 'hooks/fetchTrends';
 import { Link, useLocation } from 'react-router-dom';
 import base from '../../data/api.json';
 import Spinner from 'components/spinner/Spinner';
-
+import { toast } from 'react-toastify';
 
 const TREND_URL = ''.concat(
   base.baseUrl,
@@ -13,10 +13,14 @@ const TREND_URL = ''.concat(
 
 const Home = () => {
   const location = useLocation();
-  const { trends, isLoading } = useTrends(TREND_URL);
+  const { trends, error, isLoading } = useTrends(TREND_URL);
+
+  if (error) {
+    toast.error(error);
+  }
 
   return (
-    <div  className={`${css.container} ${css.home}`}  >
+    <div className={`${css.container} ${css.home}`}>
       <h2 className={css.homeHeader}>The most popular movies for today</h2>
       {isLoading && <Spinner />}
       <ul className={css.homeList}>
