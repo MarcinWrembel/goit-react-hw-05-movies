@@ -1,7 +1,7 @@
 import useSearchMovies from 'hooks/fetchQueryMovies';
 import { useState } from 'react';
-import SearchForm from '../../components/searchForm/SearchForm';
-import SearchMovieList from 'components/searchMovieList/SearchMovieList';
+import SearchForm from '../../components/searchingForm/SearchForm';
+import SearchMovieList from 'components/searchingMovieList/SearchMovieList';
 import { useSearchParams } from 'react-router-dom';
 import Spinner from 'components/spinner/Spinner';
 import css from './Movies.module.css';
