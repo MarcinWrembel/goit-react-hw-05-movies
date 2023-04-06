@@ -5,10 +5,11 @@ import rev from './Review.module.css';
 import { toast } from 'react-toastify';
 import PropTypes from 'prop-types';
 import parse from 'html-react-parser';
+
 //strip html tags from string
+// import { stripHtml } from "string-strip-html";
 // <p>{stripHtml(review.content).result}</p>
 
-import { stripHtml } from "string-strip-html";
 
 const Reviews = () => {
   const { movieID } = useParams();
