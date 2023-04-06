@@ -4,6 +4,7 @@ import Spinner from 'components/spinner/Spinner';
 import rev from './Review.module.css';
 import { toast } from 'react-toastify';
 import PropTypes from 'prop-types';
+import { stripHtml } from "string-strip-html";
 
 const Reviews = () => {
   const { movieID } = useParams();
@@ -18,6 +19,7 @@ const Reviews = () => {
   }
 
   if (movieReviews) {
+    
     return (
       <div className={rev.review}>
         {isLoading && <Spinner />}
@@ -26,7 +28,7 @@ const Reviews = () => {
             <li key={review.id}>
               <article className={rev.reviewListData}>
                 <h3>{review.author}</h3>
-                <p>{review.content}</p>
+                <p>{stripHtml(review.content).result}</p>
                 <footer className={rev.reviewListArticle}>
                   <p className={rev.reviewListCreation}>
                     Created at:
