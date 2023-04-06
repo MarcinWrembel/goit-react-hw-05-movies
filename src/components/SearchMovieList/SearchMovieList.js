@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import { useLocation } from 'react-router-dom';
-import css from '../../pages/Home/Home.module.css';
+import css from '../../pages/home/Home.module.css';
 import PropTypes from 'prop-types';
 
 const SearchMovieList = ({ movies }) => {
