@@ -1,4 +1,5 @@
-import Nav from './components/nav/Nav.jsx';
+import React from 'react';
+import Nav from './components/nav/Nav';
 import Routing from 'Routing';
 import { Suspense } from 'react';
 import css from 'App.module.css';
