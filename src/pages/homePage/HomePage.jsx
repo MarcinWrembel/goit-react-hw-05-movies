@@ -1,4 +1,4 @@
-import css from './Home.module.css';
+import css from './HomePage.module.css';
 import useTrends from 'hooks/fetchTrends';
 import { Link, useLocation } from 'react-router-dom';
 import base from '../../data/api.json';
