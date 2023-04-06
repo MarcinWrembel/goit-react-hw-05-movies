@@ -4,6 +4,10 @@ import Spinner from 'components/spinner/Spinner';
 import rev from './Review.module.css';
 import { toast } from 'react-toastify';
 import PropTypes from 'prop-types';
+import parse from 'html-react-parser';
+//strip html tags from string
+// <p>{stripHtml(review.content).result}</p>
+
 import { stripHtml } from "string-strip-html";
 
 const Reviews = () => {
@@ -28,7 +32,7 @@ const Reviews = () => {
             <li key={review.id}>
               <article className={rev.reviewListData}>
                 <h3>{review.author}</h3>
-                <p>{stripHtml(review.content).result}</p>
+                <p>{parse(review.content)}</p>
                 <footer className={rev.reviewListArticle}>
                   <p className={rev.reviewListCreation}>
                     Created at:
