@@ -1,8 +1,9 @@
 import nav from './Nav.module.css';
-import { StyledNav } from './Nav.styled';
+import { StyledNav } from './Navigation.styled';
+import React from 'react';
 
 const Nav = () => {
-  //StyledNav taken from Nav.styled
+  //StyledNav taken from Navigation.styled
   return (
     <nav className={nav.nav}>
       <StyledNav to="/" className={nav.navItem}>
