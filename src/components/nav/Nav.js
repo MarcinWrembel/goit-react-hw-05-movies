@@ -1,4 +1,4 @@
-import nav from './Nav.module.css';
+import nav from './Navigation.module.css';
 import { StyledNav } from './Navigation.styled';
 import React from 'react';
 
