@@ -1,0 +1,35 @@
+/**
+ * @name ranges-merge
+ * @fileoverview Merge and sort string index ranges
+ * @version 9.0.6
+ * @author Roy Revelt, Codsen Ltd
+ * @license MIT
+ * {@link https://codsen.com/os/ranges-merge/}
+ */
+
+/**
+ * @name ranges-push
+ * @fileoverview Gather string index ranges
+ * @version 7.0.6
+ * @author Roy Revelt, Codsen Ltd
+ * @license MIT
+ * {@link https://codsen.com/os/ranges-push/}
+ */
+
+/**
+ * @name ranges-sort
+ * @fileoverview Sort string index ranges
+ * @version 6.0.6
+ * @author Roy Revelt, Codsen Ltd
+ * @license MIT
+ * {@link https://codsen.com/os/ranges-sort/}
+ */
+
+/**
+ * @name string-strip-html
+ * @fileoverview Strip HTML tags from strings. No parser, accepts mixed sources.
+ * @version 13.2.1
+ * @author Roy Revelt, Codsen Ltd
+ * @license MIT
+ * {@link https://codsen.com/os/string-strip-html/}
+ */
