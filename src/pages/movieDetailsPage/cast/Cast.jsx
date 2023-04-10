@@ -29,8 +29,8 @@ const Cast = () => {
             className={css.castListItemImg}
           />
           <div className={css.castListItemIfo}>
-            <span className={css.castListItemInfo}>{cast.name}</span>
-            <span className={css.castListItemInfo}>( {cast.character} )</span>
+            <span className={css.castListItemInfoDet}>{cast.name}</span>
+            <span className={css.castListItemInfoDet}>{cast.character && `( ${cast.character} )`}</span>
           </div>
         </li>
       );

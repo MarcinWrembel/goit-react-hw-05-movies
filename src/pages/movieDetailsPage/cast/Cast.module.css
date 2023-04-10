@@ -12,14 +12,18 @@
   display: flex;
   flex-direction: column;
   gap: 10px;
-  max-width:200px
+  max-width: 200px;
 }
 
 .castListItemInfo {
+  flex-grow: 1;
+}
+.castListItemInfoDet {
   display: block;
   text-align: center;
   line-height: 1.5;
 }
+
 
 .castListItemInfo:first-child {
   font-size: 18px;
@@ -28,18 +32,18 @@
 
 .castListItemImg {
   display: block;
-  width: 100%;
+  /* width: 100%; */
+  width: 200px;
   border-radius: 10px;
 }
 
-
 @media screen and (min-width: 550px) {
-    .castList {
-        padding-left: 10px;
-        display: flex;
-        justify-content: flex-start;
-        flex-wrap: wrap;
-        align-items: center;
-        gap: 20px;
-      }
+  .castList {
+    padding-left: 10px;
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 20px;
   }
+}
