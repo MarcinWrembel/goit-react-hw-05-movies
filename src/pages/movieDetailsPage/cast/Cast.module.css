@@ -3,47 +3,50 @@
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  align-items: center;
   gap: 20px;
+  overflow: hidden;
+
 }
 
 .castListItem {
   padding-left: 0;
-  display: flex;
-  flex-direction: column;
+  font-size: 14px;
   gap: 10px;
   max-width: 200px;
+  width: 100%;
+
 }
 
 .castListItemInfo {
-  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  /* height: 100%; */
+
 }
+
 .castListItemInfoDet {
   display: block;
+  font-size: 14px;
   text-align: center;
   line-height: 1.5;
 }
 
-
-.castListItemInfo:first-child {
-  font-size: 18px;
-  font-weight: 700;
+.castListItemInfoDet:first-child {
+  padding-top: 5px;
+  font-size: 14px;
+  font-weight: 700; 
 }
 
 .castListItemImg {
   display: block;
-  /* width: 100%; */
-  width: 200px;
+  width: 100%;
   border-radius: 10px;
 }
 
 @media screen and (min-width: 550px) {
   .castList {
     padding-left: 10px;
-    display: flex;
     justify-content: flex-start;
     flex-wrap: wrap;
-    align-items: center;
-    gap: 20px;
   }
 }

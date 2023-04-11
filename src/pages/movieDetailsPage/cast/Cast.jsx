@@ -4,7 +4,7 @@ import { useParams } from 'react-router-dom';
 import base from '../../../data/api.json';
 import Spinner from 'components/spinner/Spinner';
 import { toast } from 'react-toastify';
-import PropTypes from 'prop-types'
+import PropTypes from 'prop-types';
 
 const Cast = () => {
   const { movieID } = useParams();
@@ -28,9 +28,11 @@ const Cast = () => {
             alt={cast.name}
             className={css.castListItemImg}
           />
-          <div className={css.castListItemIfo}>
+          <div className={css.castListItemInfo}>
             <span className={css.castListItemInfoDet}>{cast.name}</span>
-            <span className={css.castListItemInfoDet}>{cast.character && `( ${cast.character} )`}</span>
+            <span className={css.castListItemInfoDet}>
+              {cast.character.length > 1 && `( ${cast.character} )`}
+            </span>
           </div>
         </li>
       );
@@ -55,5 +57,5 @@ Cast.propTypes = {
   name: PropTypes.string,
   charater: PropTypes.string,
   castList: PropTypes.func,
-  movieID: PropTypes.string
+  movieID: PropTypes.string,
 };
