@@ -70,12 +70,12 @@ const MovieDetails = () => {
         <span>Additional information:</span>
         <ul className={css.movieOthersList}>
           <li className={css.movieOthersListItem}>
-            <StyledMovieLink to="cast" className={css.movieOthersListLink}>
+            <StyledMovieLink to="cast" className={css.movieOthersListLink} state={{ from: location.state.from }} >
               Cast
             </StyledMovieLink>
           </li>
           <li className={css.movieOthersListItem}>
-            <StyledMovieLink to="reviews" className={css.movieOthersListLink}>
+            <StyledMovieLink to="reviews" className={css.movieOthersListLink} state={{ from: location.state.from }} >
               Reviews
             </StyledMovieLink>
           </li>
@@ -102,3 +102,5 @@ MovieDetails.propTypes = {
   overview: PropTypes.string,
   genres: PropTypes.string,
 };
+
+// https://www.smashingmagazine.com/2020/04/dark-mode-react-apps-styled-components/

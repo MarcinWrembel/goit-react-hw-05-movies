@@ -11,6 +11,8 @@ import { marked } from 'marked';
 // import { stripHtml } from "string-strip-html";
 // <p>{stripHtml(review.content).result}</p>
 
+//<Markdown>{review.content}</Markdown> lib: marked-react
+
 const Reviews = () => {
   const { movieID } = useParams();
   const { isLoading, error, movieReviews } = useMovieReviews(movieID);
