@@ -2,6 +2,8 @@ import fetchMovie from 'functions/api';
 import { useEffect, useState } from 'react';
 import base from '../data/api.json';
 
+const apiKey = process.env.REACT_APP_API_KEY
+
 const useMovieReviews = movie_id => {
   const [movieReviews, setMovieReviews] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
@@ -17,7 +19,7 @@ const useMovieReviews = movie_id => {
         'movie/',
         movie_id,
         '/reviews?api_key=',
-        base.KEY,
+        `${apiKey}`,
         '&language=en-US'
       );
 

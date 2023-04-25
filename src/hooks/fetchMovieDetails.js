@@ -2,6 +2,8 @@ import fetchMovie from 'functions/api';
 import { useEffect, useState } from 'react';
 import base from '../data/api.json';
 
+const apiKey = process.env.REACT_APP_API_KEY
+
 const useMovieDetails = movie_id => {
   const [movieDetails, setMovieDetails] = useState({});
   const [isLoading, setIsLoading] = useState(true);
@@ -14,7 +16,7 @@ const useMovieDetails = movie_id => {
         'movie/',
         movie_id,
         '?api_key=',
-        base.KEY,
+        `${apiKey}`,
         '&language=en-US'
       );
 
