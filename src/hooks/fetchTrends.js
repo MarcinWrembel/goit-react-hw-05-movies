@@ -1,7 +1,6 @@
 import { useState, useEffect, useCallback } from 'react';
 import fetchMovie from 'functions/api';
 
-
 const useTrends = url => {
   const [trends, setTrends] = useState([]);
   const [isLoading, setIsLoading] = useState(true);

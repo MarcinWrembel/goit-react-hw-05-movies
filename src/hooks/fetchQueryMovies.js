@@ -2,7 +2,8 @@ import { useState, useEffect } from 'react';
 import fetchMovie from 'functions/api';
 import base from '../data/api.json';
 
-const apiKey = process.env.REACT_APP_API_KEY
+const API_KEY = base.KEY;
+//process.env.REACT_APP_API_KEY
 
 const useSearchMovies = query => {
   const [searchedMovies, setSearchedMovies] = useState([]);
@@ -14,7 +15,7 @@ const useSearchMovies = query => {
       const queryURL = ''.concat(
         base.baseUrl,
         'search/movie?api_key=',
-        `${apiKey}`,
+        `${API_KEY}`,
         '&language=en-US&page=1&include_adult=false&query=',
         query
       );
@@ -32,7 +33,6 @@ const useSearchMovies = query => {
         }
 
         setSearchedMovies(response.data.results);
-
       } catch (error) {
         setError(error.message);
       } finally {

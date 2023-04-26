@@ -3,7 +3,8 @@ import { useEffect, useState, useCallback } from 'react';
 import { useParams } from 'react-router-dom';
 import base from '../data/api.json';
 
-const apiKey = base.KEY process.env.REACT_APP_API_KEY
+const API_KEY = base.KEY;
+//process.env.REACT_APP_API_KEY
 
 const useCredits = () => {
   const [credits, setCredits] = useState([]);
@@ -19,7 +20,7 @@ const useCredits = () => {
       'movie/',
       movieID,
       '/credits?api_key=',
-      `${apiKey}`,
+      `${API_KEY}`,
       '&language=en-US'
     );
 
