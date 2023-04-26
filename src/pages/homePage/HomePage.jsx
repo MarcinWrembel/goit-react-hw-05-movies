@@ -6,12 +6,13 @@ import Spinner from 'components/spinner/Spinner';
 import { toast } from 'react-toastify';
 import PropTypes from 'prop-types'
 
-const apiKey = process.env.REACT_APP_API_KEY
+const API_KEY = base.KEY
+//process.env.REACT_APP_API_KEY
 
 const TREND_URL = ''.concat(
   base.baseUrl,
   'trending/movie/day?api_key=',
-  `${apiKey}`
+  `${API_KEY}`
 );
 
 const Home = () => {
