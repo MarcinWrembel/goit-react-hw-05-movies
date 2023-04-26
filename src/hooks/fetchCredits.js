@@ -3,7 +3,7 @@ import { useEffect, useState, useCallback } from 'react';
 import { useParams } from 'react-router-dom';
 import base from '../data/api.json';
 
-const apiKey = process.env.REACT_APP_API_KEY
+const apiKey = base.KEY process.env.REACT_APP_API_KEY
 
 const useCredits = () => {
   const [credits, setCredits] = useState([]);
